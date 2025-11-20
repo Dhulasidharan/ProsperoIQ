@@ -5,8 +5,12 @@ import Link from "next/link";
 
 export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
 
   const navItems = [
     { label: "Home", href: "#" },
@@ -51,30 +55,561 @@ export const Navigation: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <div key={item.label} className="relative group">
+            <div key={item.label} className="relative">
               <button
-                className="flex items-center gap-1 transition-colors hover:text-primary"
+                onClick={() => item.hasDropdown && toggleDropdown(item.label)}
+                className="flex items-center gap-1.5 transition-colors hover:text-primary"
                 style={{
-                  fontFamily: "Inter",
+                  fontFamily: "SF Pro",
                   fontWeight: 500,
                   fontSize: "12.8px",
                   lineHeight: "19.2px",
                   letterSpacing: "0%",
                   color: "#0F161E",
+                  cursor: item.hasDropdown ? "pointer" : "default",
                 }}
               >
                 {item.label}
                 {item.hasDropdown && (
-                  <>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/dropdown.svg"
-                      alt="dropdown"
-                      className="w-3 h-3"
+                  <svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    style={{
+                      transform:
+                        openDropdown === item.label
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                      transition: "transform 0.2s ease-in-out",
+                    }}
+                  >
+                    <path
+                      d="M1 1L6 6L11 1"
+                      stroke="#0F161E"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
                     />
-                  </>
+                  </svg>
                 )}
               </button>
+
+              {/* Dropdown Menu */}
+              {item.hasDropdown && openDropdown === item.label && (
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "0",
+                    top: "36px",
+                    width: "129px",
+                    height: "120px",
+                    backgroundColor: "white",
+                    border: "1px solid #000000",
+                    display: "flex",
+                    flexDirection: "column",
+                    zIndex: 50,
+                  }}
+                >
+                  <div className="flex flex-col" style={{ height: "100%" }}>
+                    {item.label === "Product" && (
+                      <>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          QSTIQ
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          CustomsIQ
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          CompllyIQ
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          InvoiceIQ
+                        </a>
+                      </>
+                    )}
+                    {item.label === "Solutions" && (
+                      <>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          For Tax Consultants
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          For Accountants
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          For Compliance
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          By Industry
+                        </a>
+                      </>
+                    )}
+                    {item.label === "Resources" && (
+                      <>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          About Us
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          Careers
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          Contact
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          Legal Pages
+                        </a>
+                      </>
+                    )}
+                    {item.label === "Company" && (
+                      <>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          About Us
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          Careers
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          Contact
+                        </a>
+                        <a
+                          href="#"
+                          style={{
+                            fontFamily: "SF Pro",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#7D1C4A",
+                            backgroundColor: "transparent",
+                            width: "129px",
+                            height: "30px",
+                            padding: "5px 10px",
+                            border: "1px solid #000000",
+                            display: "flex",
+                            alignItems: "center",
+                            boxSizing: "border-box",
+                            textDecoration: "none",
+                            transition: "all 0.15s ease-in-out",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#7D1C4A";
+                            e.currentTarget.style.color = "white";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
+                            e.currentTarget.style.color = "#7D1C4A";
+                          }}
+                        >
+                          Legal Pages
+                        </a>
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -8,18 +8,51 @@ interface HeroSectionProps {
   buttonText?: string;
 }
 
+// Fade up animation styles
+const fadeUpAnimation = `
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
 export const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Prosperity Delivered.",
-  subtitle = "Quick Query",
   buttonText = "Learn More",
 }) => {
+  const [currentWordIndex, setCurrentWordIndex] = React.useState(0);
+
+  const rotatingWords = [
+    "Quick Query",
+    "Entry Insights",
+    "Invoice Automation",
+    "Compliance Empowered",
+    "Smart Finance Intelligence",
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 3000); // Change word every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
   return (
     <section className="w-full h-full bg-white flex items-center justify-center px-4 md:px-6 lg:px-12">
       <div className="w-full max-w-7xl">
         {/* Main container with responsive flex layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content section */}
-          <div className="flex flex-col justify-center">
+          <div
+            className="flex flex-col justify-center"
+            style={{ paddingTop: "120px" }}
+          >
             {/* Prosperity Delivered Title */}
             <div className="mb-4 md:mb-6">
               <h1
@@ -38,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Quick Query Section */}
             <div className="mb-6 md:mb-8">
-              {/* Section title with accent */}
+              {/* Section title with rotating words */}
               <h2
                 style={{
                   fontFamily: "SF Pro",
@@ -48,9 +81,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   letterSpacing: "0%",
                   color: "#FFBF40",
                   marginBottom: "16px",
+                  minHeight: "40px",
+                  display: "flex",
+                  alignItems: "center",
+                  overflow: "hidden",
                 }}
               >
-                {subtitle}
+                <style>{fadeUpAnimation}</style>
+                <span
+                  style={{
+                    display: "inline-block",
+                    animation: "fadeUp 0.6s ease-out",
+                  }}
+                  key={currentWordIndex}
+                >
+                  {rotatingWords[currentWordIndex]}
+                </span>
               </h2>
 
               {/* Description text */}
@@ -108,13 +154,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right side - Illustration from public/hero.svg */}
-          <div className="hidden lg:flex justify-center items-center">
+          <div
+            className="hidden lg:flex justify-center items-center"
+            style={{ paddingTop: "30px" }}
+          >
             <div className="w-full max-w-md">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/hero.svg"
                 alt="ProsperIO ecosystem illustration showing GSTiQ, InvoiceIQ, ComplyIQ, and CustomIQ"
                 className="w-full h-auto"
+                style={{ paddingTop: "80px" }}
               />
             </div>
           </div>
