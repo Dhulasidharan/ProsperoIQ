@@ -6,13 +6,9 @@ import Link from "next/link";
 // Constants
 const NAV_STYLES = {
   container: {
-    width: "955px",
+    maxWidth: "955px",
+    width: "100%",
     height: "72px",
-    paddingLeft: "33.6px",
-    paddingRight: "52.84px",
-    paddingTop: "10.57px",
-    paddingBottom: "10.57px",
-    gap: "41.6px",
     borderRadius: "660.55px",
     border: "1.32px solid #DDE1E6",
     boxShadow: "0px 0px 2.64px 0px rgba(0, 0, 0, 0.16)",
@@ -34,8 +30,8 @@ const NAV_STYLES = {
     position: "absolute" as const,
     left: "0",
     top: "36px",
-    width: "129px",
-    height: "120px",
+    minWidth: "129px",
+    width: "max-content",
     backgroundColor: "white",
     border: "1px solid #000000",
     display: "flex",
@@ -50,8 +46,8 @@ const DROPDOWN_LINK_STYLE = {
   fontWeight: 500,
   color: "#7D1C4A",
   backgroundColor: "transparent",
-  width: "129px",
-  height: "30px",
+  width: "100%",
+  minHeight: "30px",
   padding: "5px 10px",
   border: "1px solid #000000",
   display: "flex",
@@ -150,18 +146,18 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 z-50 pt-14">
+    <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 z-50 pt-14 px-4 sm:px-6 max-w-[955px] w-full">
       <div
-        className="flex items-center justify-between bg-white rounded-full shadow-md"
+        className="flex items-center justify-between bg-white rounded-full shadow-md px-6 sm:px-8 md:px-10 py-3 gap-4 md:gap-8"
         style={NAV_STYLES.container}
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <img src="/logo.svg" alt="ProsperIO Logo" style={NAV_STYLES.logo} />
+          <img src="/logo.svg" alt="ProsperIO Logo" className="w-20 sm:w-24 md:w-[117px] h-auto" style={{ aspectRatio: "2.3" }} />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="relative">
               <button
@@ -188,7 +184,7 @@ export const Navigation: React.FC = () => {
 
         {/* CTA Button - Desktop */}
         <button
-          className="hidden md:block px-5 py-2 rounded-full font-medium text-xs text-white transition-all duration-300 hover:shadow-lg shrink-0"
+          className="hidden lg:block px-4 xl:px-5 py-2 rounded-full font-medium text-xs text-white transition-all duration-300 hover:shadow-lg shrink-0 whitespace-nowrap"
           style={{ backgroundColor: "#7D1C4A" }}
         >
           Start a free trial
@@ -197,7 +193,7 @@ export const Navigation: React.FC = () => {
         {/* Mobile menu button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden flex flex-col gap-1.5 w-6 h-6 items-center justify-center shrink-0"
+          className="lg:hidden flex flex-col gap-1.5 w-6 h-6 items-center justify-center shrink-0"
           aria-label="Toggle menu"
         >
           <span
@@ -220,7 +216,7 @@ export const Navigation: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden mt-2 pb-4 bg-white rounded-3xl border border-gray-200 mx-auto">
+        <div className="lg:hidden mt-2 pb-4 bg-white rounded-3xl border border-gray-200 mx-auto w-full">
           <div className="flex flex-col gap-3 pt-4 px-6">
             {NAV_ITEMS.map((item) => (
               <Link

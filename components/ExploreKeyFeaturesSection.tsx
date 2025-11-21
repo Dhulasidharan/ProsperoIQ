@@ -50,42 +50,26 @@ export const ExploreKeyFeaturesSection: React.FC = () => {
 
   return (
     <section
-      className="w-full"
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-12 pb-12 md:pb-16 flex flex-col items-center justify-center"
       style={{
         backgroundColor: "transparent",
-        paddingBottom: "64px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
         opacity: 1,
       }}
     >
       {/* Features Grid Container - 3 columns */}
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "30px 30px",
-          width: "100%",
-          maxWidth: "1024px",
-          margin: "0 auto",
-        }}
-        className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl mx-auto"
       >
         {/* Section Title - As first grid item spanning all columns */}
         <div
-          style={{
-            gridColumn: "1 / -1",
-            marginBottom: "20px",
-          }}
+          className="col-span-1 sm:col-span-2 lg:col-span-3 mb-4 md:mb-6"
         >
           <h2
+            className="text-xl sm:text-2xl md:text-[22px] leading-tight"
             style={{
               fontFamily: "SF Pro",
               fontWeight: 590,
               fontStyle: "normal",
-              fontSize: "22.33px",
               lineHeight: "100%",
               letterSpacing: "0%",
               color: "#7D1C4A",
@@ -100,48 +84,30 @@ export const ExploreKeyFeaturesSection: React.FC = () => {
         {features.map((feature, index) => (
           <div
             key={index}
+            className="w-full bg-white rounded-xl p-5 md:p-6 flex flex-col gap-4 shadow-lg min-h-[220px]"
             style={{
-              width: "308.39px",
-              height: "219.91px",
               backgroundColor: "#FFFFFF",
               boxShadow: "0px 10.31px 30.93px 0px rgba(0, 0, 0, 0.25)",
-              borderRadius: "12.89px",
-              padding: "20.62px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "18.9px",
             }}
           >
             {/* Icon - No background, just the image */}
             <div
-              style={{
-                width: "56px",
-                height: "56px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}
+              className="w-12 sm:w-14 h-12 sm:h-14 flex items-center justify-center shrink-0"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`/${feature.icon}`}
                 alt={feature.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                }}
+                className="w-full h-full object-contain"
               />
             </div>
 
             {/* Title */}
             <h3
+              className="text-sm sm:text-base font-medium"
               style={{
                 fontFamily: "SF Pro",
                 fontWeight: 510,
-                fontStyle: "normal",
-                fontSize: "14px",
                 lineHeight: "129%",
                 letterSpacing: "0%",
                 margin: "0",
@@ -153,11 +119,10 @@ export const ExploreKeyFeaturesSection: React.FC = () => {
 
             {/* Description */}
             <p
+              className="text-xs sm:text-sm"
               style={{
                 fontFamily: "SF Pro",
                 fontWeight: 400,
-                fontStyle: "normal",
-                fontSize: "12px",
                 lineHeight: "156%",
                 letterSpacing: "0%",
                 color: "#000000",

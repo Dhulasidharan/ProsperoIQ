@@ -58,66 +58,42 @@ const STICKY_HEADER_STYLES = {
 };
 
 const HEADING_STYLES = {
-  width: "272px",
   fontFamily: "SF Pro",
   fontWeight: 590,
-  fontSize: "64px",
   lineHeight: "100%",
   letterSpacing: "0%",
   color: "#7D1C4A",
-  marginBottom: "24px",
 };
 
 const DESCRIPTION_STYLES = {
-  width: "424px",
   fontFamily: "SF Pro",
   fontWeight: 400,
-  fontSize: "18px",
   lineHeight: "30px",
   letterSpacing: "4%",
   color: "#53565B",
-  marginBottom: "24px",
 };
 
 const BUTTON_STYLES = {
-  width: "144.59px",
-  height: "35.20px",
   borderRadius: "628.02px",
   border: "1px solid #7D1C4A",
   backgroundColor: "transparent",
   color: "#000000",
-  padding: "7.54px",
-  gap: "7.54px",
   fontFamily: "SF Pro",
   fontWeight: 590,
   fontStyle: "Semibold" as const,
-  fontSize: "12.57px",
-  lineHeight: "20.12px",
   letterSpacing: "0%",
   cursor: "pointer" as const,
 };
 
 const CARD_STYLES = {
-  width: "431.41607666015625px",
-  height: "311px",
   background: "#FFFFFF",
   borderRadius: "15px",
   boxShadow: "0px 12px 36px 0px #00000040",
-  paddingTop: "35px",
-  paddingRight: "24px",
-  paddingBottom: "14px",
-  paddingLeft: "24px",
-  display: "flex",
-  flexDirection: "column" as const,
-  gap: "10px",
-  alignItems: "flex-start" as const,
 };
 
 const CARD_TITLE_STYLES = {
-  width: "251px",
   fontFamily: "SF Pro",
   fontWeight: 700,
-  fontSize: "16.55px",
   lineHeight: "129%",
   letterSpacing: "0%",
   margin: "0",
@@ -148,21 +124,21 @@ const FEATURE_TEXT_STYLES = {
 export const OurPlatformsSection: React.FC = () => {
   return (
     <section
-      className="w-full px-4 md:px-6 lg:px-12 py-16 md:py-20 lg:py-24"
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20"
       style={{ backgroundColor: "#FFFFFF" }}
     >
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 md:gap-12">
         {/* Sticky Section Header */}
-        <div className="lg:w-1/2" style={STICKY_HEADER_STYLES}>
-          <h2 style={HEADING_STYLES}>Our Platforms</h2>
-          <p style={DESCRIPTION_STYLES}>
+        <div className="w-full lg:w-1/2" style={STICKY_HEADER_STYLES}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-4 md:mb-6" style={HEADING_STYLES}>Our Platforms</h2>
+          <p className="text-base sm:text-lg mb-4 md:mb-6 max-w-md" style={DESCRIPTION_STYLES}>
             ProsperoIQ is a smart business solutions platform designed to
             simplify operations, compliance, and financial processes. Our
             AI-powered products help businesses save time, reduce errors, and
             stay compliant with ease
           </p>
           <button
-            className="transition-all duration-300 hover:bg-primary hover:text-white font-sf-pro font-semibold text-sm whitespace-nowrap"
+            className="px-4 sm:px-5 py-2 text-xs sm:text-sm transition-all duration-300 hover:bg-primary hover:text-white font-semibold whitespace-nowrap"
             style={BUTTON_STYLES}
           >
             Learn More
@@ -170,39 +146,33 @@ export const OurPlatformsSection: React.FC = () => {
         </div>
 
         {/* Vertically Aligned Cards */}
-        <div className="flex flex-col gap-10 lg:w-1/2 items-center">
+        <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 w-full lg:w-1/2">
           {PLATFORM_DATA.map((platform: PlatformCard, index: number) => (
-            <div key={index} style={CARD_STYLES}>
+            <div key={index} className="w-full p-6 md:p-8 flex flex-col gap-3 min-h-[280px]" style={CARD_STYLES}>
               {/* Icon and Title */}
-              <div className="flex items-center gap-4 mb-2">
-                <div>
+              <div className="flex items-center gap-3 md:gap-4 mb-2">
+                <div className="shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={platform.icon}
                     alt={platform.title}
-                    style={{ width: "48px", height: "48px" }}
+                    className="w-10 h-10 sm:w-12 sm:h-12"
                   />
                 </div>
-                <h3 style={CARD_TITLE_STYLES}>{platform.title}</h3>
+                <h3 className="text-sm sm:text-base md:text-[17px]" style={CARD_TITLE_STYLES}>{platform.title}</h3>
               </div>
               {/* Features List */}
               <ul
-                style={{
-                  listStyle: "none",
-                  padding: "0",
-                  margin: "0",
-                  marginTop: "8px",
-                }}
+                className="list-none p-0 m-0 mt-2"
               >
                 {platform.features.map(
                   (feature: string, featureIndex: number) => (
                     <li
                       key={featureIndex}
-                      className="flex gap-3 mb-3"
-                      style={{ alignItems: "flex-start" }}
+                      className="flex gap-2 md:gap-3 mb-2 md:mb-3 items-start"
                     >
                       <span style={BULLET_STYLES}>•</span>
-                      <span style={FEATURE_TEXT_STYLES}>{feature}</span>
+                      <span className="text-xs sm:text-sm" style={FEATURE_TEXT_STYLES}>{feature}</span>
                     </li>
                   )
                 )}
