@@ -5,6 +5,7 @@ import {
   HeroSection,
   WhoAreWeSection,
   ExploreKeyFeaturesSection,
+  OurPlatformsSection,
 } from "@/components";
 
 export default function Home() {
@@ -30,6 +31,9 @@ export default function Home() {
             <ExploreKeyFeaturesSection />
           </div>
         </div>
+
+        {/* Our Platforms section */}
+        <OurPlatformsSection />
       </div>
     </main>
   );

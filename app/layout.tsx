@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ProsperIO - Prosperity Delivered",
+  title: "ProsperoIO - Prosperity Delivered",
   description:
     "Quick Query, Entry Insight, Invoice Automated, Compliance Empowered - A Shreyas Global Initiative driving growth for mid to large enterprises.",
 };
