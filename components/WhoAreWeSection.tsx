@@ -1,42 +1,32 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export const WhoAreWeSection: React.FC = () => {
   return (
     <section
-      className="w-full py-8 md:py-12 lg:py-16"
+      className="w-full py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12"
       style={{ backgroundColor: "transparent" }}
     >
       {/* Flex container for title and content */}
-      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+      <div className="flex flex-col w-full max-w-7xl mx-auto">
         {/* Section Title and Content Wrapper */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            alignItems: "flex-start",
-            gap: "0",
-          }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start"
         >
           {/* Left column - Title and Box */}
           <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "80px",
-            }}
+            className="flex flex-col"
           >
             {/* Section Title */}
-            <div style={{ marginBottom: "20px" }}>
+            <div className="mb-5 md:mb-6">
               <h2
+                className="text-3xl sm:text-4xl md:text-[42px] leading-tight font-semibold"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 590,
-                  fontStyle: "normal",
-                  fontSize: "42px",
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
                   color: "#7D1C4A",
                   margin: "0",
                 }}
@@ -47,27 +37,20 @@ export const WhoAreWeSection: React.FC = () => {
 
             {/* Content Box */}
             <div
+              className="w-full rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[400px]"
               style={{
-                width: "100%",
                 maxWidth: "617.86px",
-                height: "402.60px",
                 borderRadius: "18.37px",
                 backgroundColor: "#7D1C4A",
-                padding: "32px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
               }}
             >
               {/* Value Delivered Title */}
               <h3
+                className="text-lg sm:text-xl font-semibold"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 590,
-                  fontStyle: "normal",
-                  fontSize: "20.57px",
-                  lineHeight: "49.96px",
-                  letterSpacing: "0%",
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
                   color: "#FFBF40",
                   margin: "0 0 16px 0",
                 }}
@@ -77,13 +60,12 @@ export const WhoAreWeSection: React.FC = () => {
 
               {/* Description Text */}
               <p
+                className="text-sm sm:text-base"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 500,
-                  fontStyle: "normal",
-                  fontSize: "14px",
-                  lineHeight: "22.04px",
-                  letterSpacing: "4%",
+                  fontWeight: 400,
+                  lineHeight: "1.7",
+                  letterSpacing: "0.01em",
                   color: "#FFFFFF",
                   margin: "0",
                 }}
@@ -101,24 +83,13 @@ export const WhoAreWeSection: React.FC = () => {
 
               {/* Learn More Button */}
               <button
-                className="mt-6 px-6 py-2.5 border-2 rounded-full transition-all duration-300 hover:bg-white hover:text-gray-900 font-sf-pro font-semibold text-sm whitespace-nowrap self-start"
+                className="mt-4 sm:mt-6 px-4 sm:px-6 py-2 sm:py-2.5 border rounded-full transition-all duration-300 hover:bg-white hover:text-gray-900 font-semibold text-xs sm:text-sm whitespace-nowrap self-start flex items-center justify-center"
                 style={{
-                  width: "144.59px",
-                  height: "35.20px",
-                  borderRadius: "628.02px",
-                  border: "1px solid #FFFFFF",
-                  padding: "7.54px",
                   fontFamily: "SF Pro",
                   fontWeight: 590,
-                  fontSize: "12.57px",
-                  lineHeight: "20.12px",
-                  letterSpacing: "0%",
+                  border: "1px solid #FFFFFF",
                   color: "#FFFFFF",
                   backgroundColor: "transparent",
-                  gap: "7.54px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                 }}
                 aria-label="Learn More"
               >
@@ -129,34 +100,26 @@ export const WhoAreWeSection: React.FC = () => {
 
           {/* Right - Images Section - Aligned with left box */}
           <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              marginTop: "calc(42px + 20px)",
-            }}
+            className="flex justify-center items-start lg:mt-[62px]"
           >
             <div className="w-full max-w-md relative">
               {/* Container for overlapping images */}
               <div
-                className="relative flex items-center justify-center"
-                style={{
-                  height: "402.60px",
-                }}
+                className="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px]"
               >
                 {/* Main Image */}
                 <div
-                  className="w-full rounded-2xl overflow-hidden shadow-2xl"
+                  className="w-full rounded-2xl overflow-hidden shadow-2xl h-full relative"
                   style={{
                     backgroundColor: "#FFFFFF",
-                    height: "100%",
                   }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src="/image.png"
                     alt="Who are we showcase"
-                    className="w-full h-auto object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   />
                 </div>
 
