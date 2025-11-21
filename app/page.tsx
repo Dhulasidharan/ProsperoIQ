@@ -1,14 +1,35 @@
 "use client";
 
-import { Navigation, HeroSection } from "@/components";
+import {
+  Navigation,
+  HeroSection,
+  WhoAreWeSection,
+  ExploreKeyFeaturesSection,
+} from "@/components";
 
 export default function Home() {
   return (
-    <main className="h-screen w-screen bg-white flex flex-col overflow-hidden">
+    <main className="w-full bg-white">
       <Navigation />
-      {/* Hero section fills remaining space */}
-      <div className="flex-1 overflow-hidden">
+
+      {/* Unified max-width container for all sections */}
+      <div className="w-full flex flex-col">
+        {/* Hero section */}
         <HeroSection />
+
+        {/* Shared container for Who Are We and Explore Key Features */}
+        <div
+          className="w-full bg-gray-100 px-4 md:px-6 lg:px-12"
+          style={{ backgroundColor: "#F5F5F5" }}
+        >
+          <div className="w-full max-w-7xl mx-auto">
+            {/* Who Are We section */}
+            <WhoAreWeSection />
+
+            {/* Explore Key Features section */}
+            <ExploreKeyFeaturesSection />
+          </div>
+        </div>
       </div>
     </main>
   );

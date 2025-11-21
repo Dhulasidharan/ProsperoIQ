@@ -44,7 +44,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
   return (
-    <section className="w-full h-full bg-white flex items-center justify-center px-4 md:px-6 lg:px-12">
+    <section className="w-full bg-white flex items-center justify-center px-4 md:px-6 lg:px-12 min-h-screen">
       <div className="w-full max-w-7xl">
         {/* Main container with responsive flex layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
