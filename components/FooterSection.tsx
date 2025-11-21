@@ -1,6 +1,7 @@
 "use client";
 
 import type React from "react";
+import Image from "next/image";
 import { FaLinkedin, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { FiMail, FiSun, FiPhone, FiMapPin } from "react-icons/fi";
 
@@ -35,7 +36,7 @@ const COPYRIGHT_STYLE = {
 export const FooterSection: React.FC = () => (
   <footer
     className="w-full flex flex-col items-center justify-center"
-    style={{ background: BG_COLOR, padding: "44px 0 0 0" }}
+    style={{ background: BG_COLOR, padding: "44px 0 44px 0" }}
   >
     <div
       className="w-full max-w-7xl mx-auto flex flex-col gap-8"
@@ -49,6 +50,7 @@ export const FooterSection: React.FC = () => (
           <div style={TEXT_STYLE}>About Us</div>
           <div style={TEXT_STYLE}>Careers</div>
         </div>
+
         {/* Policies */}
         <div>
           <div style={HEADING_STYLE}>Policies</div>
@@ -56,6 +58,7 @@ export const FooterSection: React.FC = () => (
           <div style={TEXT_STYLE}>Privacy policy</div>
           <div style={TEXT_STYLE}>Refund policy</div>
         </div>
+
         {/* Contact Us */}
         <div>
           <div style={HEADING_STYLE}>Contact Us</div>
@@ -69,74 +72,157 @@ export const FooterSection: React.FC = () => (
             <FiPhone style={{ marginRight: 8 }} /> +91 7305372449
           </div>
         </div>
+
         {/* Stay up to date */}
         <div>
           <div style={HEADING_STYLE}>Stay up to date</div>
-          <div className="flex items-center mb-4">
+
+          <div
+            className="flex items-center mb-4"
+            style={{
+              width: "244.8px",
+              height: "32.52px",
+              background: "#FFFFFF",
+              borderRadius: "6.76px",
+              padding: "6.76px 16.9px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "56.34px",
+            }}
+          >
             <input
               type="email"
+              className="email-input"
               placeholder="Your email address"
               style={{
-                padding: "8px 16px",
-                borderRadius: "8px",
                 border: "none",
-                width: "180px",
-                fontSize: "16px",
-                marginRight: "8px",
+                background: "transparent",
+                fontSize: "15.78px",
+                fontWeight: 274,
+                color: "#000000",
+                outline: "none",
+                flex: 1,
+                fontFamily: "SF Pro",
+                lineHeight: "100%",
+                width: "140px",
+                height: "19px",
               }}
             />
+
             <button
               style={{
-                background: "#F2F2F2",
+                background: "transparent",
                 border: "none",
-                borderRadius: "8px",
-                padding: "8px 12px",
                 cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 0,
+                minWidth: "22px",
               }}
               aria-label="Subscribe"
             >
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-                <path
-                  d="M2 12l20-8-8 20-2-8-8-4z"
-                  stroke="#7D1C4A"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <Image
+                src="/send-2.svg"
+                alt="send"
+                width={22}
+                height={22}
+                priority
+              />
             </button>
           </div>
+
           <div className="flex gap-4">
             <a href="#" aria-label="LinkedIn">
-              <FaLinkedin size={32} color="#F2F2F2" />
+              <Image
+                src="/linkedin.png"
+                alt="LinkedIn"
+                width={32}
+                height={32}
+                style={{ width: 32, height: 32 }}
+              />
             </a>
             <a href="#" aria-label="Instagram">
-              <FaInstagram size={32} color="#F2F2F2" />
+              <Image
+                src="/insta.png"
+                alt="Instagram"
+                width={32}
+                height={32}
+                style={{ width: 32, height: 32 }}
+              />
             </a>
             <a href="#" aria-label="Twitter">
-              <FaTwitter size={32} color="#F2F2F2" />
+              <Image
+                src="/twitter.png"
+                alt="Twitter"
+                width={32}
+                height={32}
+                style={{ width: 32, height: 32 }}
+              />
             </a>
             <a href="#" aria-label="YouTube">
-              <FaYoutube size={32} color="#F2F2F2" />
+              <Image
+                src="/youtube.png"
+                alt="YouTube"
+                width={32}
+                height={32}
+                style={{ width: 32, height: 32 }}
+              />
             </a>
           </div>
         </div>
       </div>
-      {/* Visit Us */}
-      <div
-        className="flex items-center mt-8"
-        style={{ borderTop: "1px solid #F2F2F2", paddingTop: "24px" }}
-      >
-        <FiMapPin size={22} color="#F2F2F2" style={{ marginRight: 12 }} />
-        <span style={{ ...TEXT_STYLE, color: "#F2F2F2" }}>
-          H65,4th Floor 4B, East Avenue, Pushkar Soundary Enclave, Korattur ,
-          Tiruvallur, Ambattur, Tamil Nadu 600050
-        </span>
+
+      <div className="mt-8 w-full">
+        <div className="flex items-center">
+          <span
+            style={{
+              ...HEADING_STYLE,
+              color: "#fff",
+              marginBottom: 0,
+              marginRight: 16,
+            }}
+          >
+            Visit Us
+          </span>
+          <div
+            style={{
+              flex: 1,
+              height: 1,
+              background: "#fff",
+              opacity: 0.5,
+              marginRight: 0,
+            }}
+          />
+        </div>
+
+        <div className="flex items-center mt-6">
+          <Image
+            src="/location.png"
+            alt="location"
+            width={22}
+            height={22}
+            style={{ width: 22, height: 22, marginRight: 12 }}
+          />
+          <span style={{ ...TEXT_STYLE, color: "#CCCCCC", marginBottom: 0 }}>
+            H65,4th Floor 4B, East Avenue, Pushkar Soundary Enclave, Korattur ,
+            Tiruvallur, Ambattur, Tamil Nadu 600050
+          </span>
+        </div>
       </div>
     </div>
-    {/* Copyright */}
+
     <div style={COPYRIGHT_STYLE}>
       ProsperoIQ Solutions@ 2025. All rights reserved.
     </div>
+
+    {/* FIX ADDED HERE */}
+    <style>{`
+      .email-input::placeholder {
+        color: #000000;
+        opacity: 1;
+      }
+    `}</style>
   </footer>
 );
