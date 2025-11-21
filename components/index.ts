@@ -5,3 +5,4 @@ export { ExploreKeyFeaturesSection } from "./ExploreKeyFeaturesSection";
 export { OurPlatformsSection } from "./OurPlatformsSection";
 export { WhyBusinessesTrustSection } from "./WhyBusinessesTrustSection";
 export { PartnerSection } from "./PartnerSection";
+export { FooterSection } from "./FooterSection";
