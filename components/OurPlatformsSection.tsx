@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 
 interface PlatformCard {
   icon: string;
@@ -8,7 +8,7 @@ interface PlatformCard {
   features: string[];
 }
 
-const platformData: PlatformCard[] = [
+const PLATFORM_DATA: PlatformCard[] = [
   {
     icon: "/GSTIQ.png",
     title: "Download, Recon and Insights",
@@ -50,6 +50,101 @@ const platformData: PlatformCard[] = [
   },
 ];
 
+const STICKY_HEADER_STYLES = {
+  position: "sticky" as const,
+  top: 32,
+  alignSelf: "flex-start" as const,
+  zIndex: 10,
+};
+
+const HEADING_STYLES = {
+  width: "272px",
+  fontFamily: "SF Pro",
+  fontWeight: 590,
+  fontSize: "64px",
+  lineHeight: "100%",
+  letterSpacing: "0%",
+  color: "#7D1C4A",
+  marginBottom: "24px",
+};
+
+const DESCRIPTION_STYLES = {
+  width: "424px",
+  fontFamily: "SF Pro",
+  fontWeight: 400,
+  fontSize: "18px",
+  lineHeight: "30px",
+  letterSpacing: "4%",
+  color: "#53565B",
+  marginBottom: "24px",
+};
+
+const BUTTON_STYLES = {
+  width: "144.59px",
+  height: "35.20px",
+  borderRadius: "628.02px",
+  border: "1px solid #7D1C4A",
+  backgroundColor: "transparent",
+  color: "#000000",
+  padding: "7.54px",
+  gap: "7.54px",
+  fontFamily: "SF Pro",
+  fontWeight: 590,
+  fontStyle: "Semibold" as const,
+  fontSize: "12.57px",
+  lineHeight: "20.12px",
+  letterSpacing: "0%",
+  cursor: "pointer" as const,
+};
+
+const CARD_STYLES = {
+  width: "431.41607666015625px",
+  height: "311px",
+  background: "#FFFFFF",
+  borderRadius: "15px",
+  boxShadow: "0px 12px 36px 0px #00000040",
+  paddingTop: "35px",
+  paddingRight: "24px",
+  paddingBottom: "14px",
+  paddingLeft: "24px",
+  display: "flex",
+  flexDirection: "column" as const,
+  gap: "10px",
+  alignItems: "flex-start" as const,
+};
+
+const CARD_TITLE_STYLES = {
+  width: "251px",
+  fontFamily: "SF Pro",
+  fontWeight: 700,
+  fontSize: "16.55px",
+  lineHeight: "129%",
+  letterSpacing: "0%",
+  margin: "0",
+  color: "#7D1C4A",
+};
+
+const BULLET_STYLES = {
+  color: "#171A1F",
+  fontWeight: "bold",
+  fontSize: "16px",
+  lineHeight: "1.4",
+  flexShrink: 0,
+};
+
+const FEATURE_TEXT_STYLES = {
+  fontFamily: "SF Pro",
+  fontWeight: 400,
+  fontStyle: "normal" as const,
+  fontSize: "12.38px",
+  lineHeight: "150%",
+  letterSpacing: "4%",
+  color: "#171A1F",
+  padding: "4px 8px",
+  borderRadius: "4px",
+  display: "inline-block" as const,
+};
+
 export const OurPlatformsSection: React.FC = () => {
   return (
     <section
@@ -58,41 +153,9 @@ export const OurPlatformsSection: React.FC = () => {
     >
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
         {/* Sticky Section Header */}
-        <div
-          className="lg:w-1/2"
-          style={{
-            position: "sticky",
-            top: 32,
-            alignSelf: "flex-start",
-            zIndex: 10,
-          }}
-        >
-          <h2
-            style={{
-              width: "272px",
-              fontFamily: "SF Pro",
-              fontWeight: 590,
-              fontSize: "64px",
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#7D1C4A",
-              marginBottom: "24px",
-            }}
-          >
-            Our Platforms
-          </h2>
-          <p
-            style={{
-              width: "424px",
-              fontFamily: "SF Pro",
-              fontWeight: 400,
-              fontSize: "18px",
-              lineHeight: "30px",
-              letterSpacing: "4%",
-              color: "#53565B",
-              marginBottom: "24px",
-            }}
-          >
+        <div className="lg:w-1/2" style={STICKY_HEADER_STYLES}>
+          <h2 style={HEADING_STYLES}>Our Platforms</h2>
+          <p style={DESCRIPTION_STYLES}>
             ProsperoIQ is a smart business solutions platform designed to
             simplify operations, compliance, and financial processes. Our
             AI-powered products help businesses save time, reduce errors, and
@@ -100,20 +163,7 @@ export const OurPlatformsSection: React.FC = () => {
           </p>
           <button
             className="transition-all duration-300 hover:bg-primary hover:text-white font-sf-pro font-semibold text-sm whitespace-nowrap"
-            style={{
-              width: "144.59px",
-              height: "35.20px",
-              borderRadius: "628.02px",
-              border: "1px solid #7D1C4A",
-              backgroundColor: "transparent",
-              color: "#000000",
-              padding: "7.54px",
-              gap: "7.54px",
-              fontSize: "14px",
-              fontFamily: "SF Pro",
-              fontWeight: 500,
-              cursor: "pointer",
-            }}
+            style={BUTTON_STYLES}
           >
             Learn More
           </button>
@@ -121,25 +171,8 @@ export const OurPlatformsSection: React.FC = () => {
 
         {/* Vertically Aligned Cards */}
         <div className="flex flex-col gap-10 lg:w-1/2 items-center">
-          {platformData.map((platform, index) => (
-            <div
-              key={index}
-              style={{
-                width: "431.41607666015625px",
-                height: "311px",
-                background: "#FFFFFF",
-                borderRadius: "15px",
-                boxShadow: "0px 12px 36px 0px #00000040",
-                paddingTop: "35px",
-                paddingRight: "24px",
-                paddingBottom: "14px",
-                paddingLeft: "24px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-                alignItems: "flex-start",
-              }}
-            >
+          {PLATFORM_DATA.map((platform: PlatformCard, index: number) => (
+            <div key={index} style={CARD_STYLES}>
               {/* Icon and Title */}
               <div className="flex items-center gap-4 mb-2">
                 <div>
@@ -150,20 +183,7 @@ export const OurPlatformsSection: React.FC = () => {
                     style={{ width: "48px", height: "48px" }}
                   />
                 </div>
-                <h3
-                  style={{
-                    width: "251px",
-                    fontFamily: "SF Pro",
-                    fontWeight: 700,
-                    fontSize: "16.55px",
-                    lineHeight: "129%",
-                    letterSpacing: "0%",
-                    margin: "0",
-                    color: "#7D1C4A",
-                  }}
-                >
-                  {platform.title}
-                </h3>
+                <h3 style={CARD_TITLE_STYLES}>{platform.title}</h3>
               </div>
               {/* Features List */}
               <ul
@@ -174,41 +194,18 @@ export const OurPlatformsSection: React.FC = () => {
                   marginTop: "8px",
                 }}
               >
-                {platform.features.map((feature, featureIndex) => (
-                  <li
-                    key={featureIndex}
-                    className="flex gap-3 mb-3"
-                    style={{ alignItems: "flex-start" }}
-                  >
-                    <span
-                      style={{
-                        color: "#171A1F",
-                        fontWeight: "bold",
-                        fontSize: "16px",
-                        lineHeight: "1.4",
-                        flexShrink: 0,
-                      }}
+                {platform.features.map(
+                  (feature: string, featureIndex: number) => (
+                    <li
+                      key={featureIndex}
+                      className="flex gap-3 mb-3"
+                      style={{ alignItems: "flex-start" }}
                     >
-                      •
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: "SF Pro",
-                        fontWeight: 400,
-                        fontStyle: "normal",
-                        fontSize: "12.38px",
-                        lineHeight: "150%",
-                        letterSpacing: "4%",
-                        color: "#171A1F",
-                        padding: "4px 8px",
-                        borderRadius: "4px",
-                        display: "inline-block",
-                      }}
-                    >
-                      {feature}
-                    </span>
-                  </li>
-                ))}
+                      <span style={BULLET_STYLES}>•</span>
+                      <span style={FEATURE_TEXT_STYLES}>{feature}</span>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           ))}

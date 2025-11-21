@@ -3,3 +3,4 @@ export { HeroSection } from "./HeroSection";
 export { WhoAreWeSection } from "./WhoAreWeSection";
 export { ExploreKeyFeaturesSection } from "./ExploreKeyFeaturesSection";
 export { OurPlatformsSection } from "./OurPlatformsSection";
+export { WhyBusinessesTrustSection } from "./WhyBusinessesTrustSection";

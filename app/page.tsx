@@ -6,6 +6,7 @@ import {
   WhoAreWeSection,
   ExploreKeyFeaturesSection,
   OurPlatformsSection,
+  WhyBusinessesTrustSection,
 } from "@/components";
 
 export default function Home() {
@@ -34,6 +35,9 @@ export default function Home() {
 
         {/* Our Platforms section */}
         <OurPlatformsSection />
+
+        {/* Why Businesses Trust section */}
+        <WhyBusinessesTrustSection />
       </div>
     </main>
   );
