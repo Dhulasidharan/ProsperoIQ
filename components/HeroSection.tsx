@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface HeroSectionProps {
   title?: string;
@@ -56,12 +57,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Prosperity Delivered Title */}
             <div className="mb-4 md:mb-6">
               <h1
+                className="font-semibold"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 590,
                   fontSize: "clamp(32px, 8vw, 45.21px)",
-                  lineHeight: "1.15",
-                  letterSpacing: "0%",
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
                   color: "#7D1C4A",
                 }}
               >
@@ -73,12 +74,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="mb-6 md:mb-8">
               {/* Section title with rotating words */}
               <h2
+                className="font-medium"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 510,
                   fontSize: "clamp(24px, 6vw, 32.16px)",
-                  lineHeight: "1.2",
-                  letterSpacing: "0%",
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
                   color: "#FFBF40",
                   marginBottom: "16px",
                   minHeight: "40px",
@@ -106,29 +107,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 }}
               >
                 <p
+                  className="text-base sm:text-lg"
                   style={{
                     fontFamily: "SF Pro",
                     fontWeight: 400,
-                    fontSize: "19.49px",
-                    lineHeight: "134%",
-                    letterSpacing: "0%",
+                    lineHeight: "1.6",
+                    letterSpacing: "0.01em",
                     color: "#0F161E",
                     margin: "0 0 8px 0",
                   }}
                 >
                   A{" "}
-                  <span style={{ color: "#229738", fontWeight: 400 }}>
+                  <span style={{ color: "#229738", fontWeight: 500 }}>
                     Shreyas Global
                   </span>{" "}
                   Initiative – Driving Growth for Mid
                 </p>
                 <p
+                  className="text-base sm:text-lg"
                   style={{
                     fontFamily: "SF Pro",
                     fontWeight: 400,
-                    fontSize: "19.49px",
-                    lineHeight: "134%",
-                    letterSpacing: "0%",
+                    lineHeight: "1.6",
+                    letterSpacing: "0.01em",
                     color: "#0F161E",
                     margin: "0",
                   }}
@@ -158,13 +159,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="hidden lg:flex justify-center items-center"
             style={{ paddingTop: "30px" }}
           >
-            <div className="w-full max-w-md">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="w-full max-w-md relative" style={{ paddingTop: "80px" }}>
+              <Image
                 src="/hero.svg"
-                alt="ProsperIO ecosystem illustration showing GSTiQ, InvoiceIQ, ComplyIQ, and CustomIQ"
+                alt="ProsperoIQ ecosystem illustration showing GSTiQ, InvoiceIQ, ComplyIQ, and CustomIQ"
+                width={500}
+                height={500}
                 className="w-full h-auto"
-                style={{ paddingTop: "80px" }}
+                priority
               />
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Constants
 const NAV_STYLES = {
@@ -153,7 +154,7 @@ export const Navigation: React.FC = () => {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <img src="/logo.svg" alt="ProsperIO Logo" className="w-20 sm:w-24 md:w-[117px] h-auto" style={{ aspectRatio: "2.3" }} />
+          <Image src="/logo.svg" alt="ProsperoIQ Logo" width={117} height={51} className="w-20 sm:w-24 md:w-[117px] h-auto" priority />
         </Link>
 
         {/* Desktop Navigation */}

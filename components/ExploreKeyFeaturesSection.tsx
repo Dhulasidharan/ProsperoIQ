@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface FeatureCard {
   title: string;
@@ -65,13 +66,11 @@ export const ExploreKeyFeaturesSection: React.FC = () => {
           className="col-span-1 sm:col-span-2 lg:col-span-3 mb-4 md:mb-6"
         >
           <h2
-            className="text-xl sm:text-2xl md:text-[22px] leading-tight"
+            className="text-xl sm:text-2xl md:text-[22px] leading-tight font-semibold"
             style={{
               fontFamily: "SF Pro",
-              fontWeight: 590,
-              fontStyle: "normal",
-              lineHeight: "100%",
-              letterSpacing: "0%",
+              lineHeight: "1.2",
+              letterSpacing: "-0.01em",
               color: "#7D1C4A",
               margin: "0",
             }}
@@ -92,24 +91,24 @@ export const ExploreKeyFeaturesSection: React.FC = () => {
           >
             {/* Icon - No background, just the image */}
             <div
-              className="w-12 sm:w-14 h-12 sm:h-14 flex items-center justify-center shrink-0"
+              className="w-12 sm:w-14 h-12 sm:h-14 flex items-center justify-center shrink-0 relative"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={`/${feature.icon}`}
                 alt={feature.title}
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
+                sizes="56px"
               />
             </div>
 
             {/* Title */}
             <h3
-              className="text-sm sm:text-base font-medium"
+              className="text-sm sm:text-base font-semibold"
               style={{
                 fontFamily: "SF Pro",
-                fontWeight: 510,
-                lineHeight: "129%",
-                letterSpacing: "0%",
+                lineHeight: "1.3",
+                letterSpacing: "-0.01em",
                 margin: "0",
                 color: "#7D1C4A",
               }}
@@ -123,8 +122,8 @@ export const ExploreKeyFeaturesSection: React.FC = () => {
               style={{
                 fontFamily: "SF Pro",
                 fontWeight: 400,
-                lineHeight: "156%",
-                letterSpacing: "0%",
+                lineHeight: "1.6",
+                letterSpacing: "0.01em",
                 color: "#000000",
                 margin: "0",
               }}

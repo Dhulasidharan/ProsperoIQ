@@ -41,17 +41,17 @@ const SECTION_STYLES = {
 
 const HEADING_STYLES = {
   fontFamily: "SF Pro",
-  fontWeight: 590,
-  letterSpacing: "0.2px",
+  fontWeight: 600,
+  letterSpacing: "-0.01em",
   textAlign: "center" as const,
   color: "#7D1C4A",
 } as const;
 
 const DESCRIPTION_STYLES = {
   fontFamily: "SF Pro",
-  fontWeight: 510,
-  lineHeight: "30px",
-  letterSpacing: "0.2px",
+  fontWeight: 400,
+  lineHeight: "1.7",
+  letterSpacing: "0.01em",
   textAlign: "center" as const,
   color: "#000000",
 } as const;
@@ -101,10 +101,10 @@ const CARD_STYLES = {
 
 const CARD_TITLE_STYLES = {
   fontFamily: "SF Pro",
-  fontWeight: 700,
+  fontWeight: 600,
   fontSize: "24px",
-  lineHeight: "32px",
-  letterSpacing: "0.1px",
+  lineHeight: "1.3",
+  letterSpacing: "-0.01em",
   margin: "0",
   color: "#252B42",
 } as const;
@@ -113,8 +113,8 @@ const CARD_DESCRIPTION_STYLES = {
   fontFamily: "SF Pro",
   fontWeight: 400,
   fontSize: "16px",
-  lineHeight: "24px",
-  letterSpacing: "0.2px",
+  lineHeight: "1.6",
+  letterSpacing: "0.01em",
   margin: "0",
   marginTop: "8px",
 } as const;

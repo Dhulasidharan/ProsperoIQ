@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export const WhoAreWeSection: React.FC = () => {
   return (
@@ -21,13 +22,11 @@ export const WhoAreWeSection: React.FC = () => {
             {/* Section Title */}
             <div className="mb-5 md:mb-6">
               <h2
-                className="text-3xl sm:text-4xl md:text-[42px] leading-tight"
+                className="text-3xl sm:text-4xl md:text-[42px] leading-tight font-semibold"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 590,
-                  fontStyle: "normal",
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
                   color: "#7D1C4A",
                   margin: "0",
                 }}
@@ -47,13 +46,11 @@ export const WhoAreWeSection: React.FC = () => {
             >
               {/* Value Delivered Title */}
               <h3
+                className="text-lg sm:text-xl font-semibold"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 590,
-                  fontStyle: "normal",
-                  fontSize: "20.57px",
-                  lineHeight: "49.96px",
-                  letterSpacing: "0%",
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
                   color: "#FFBF40",
                   margin: "0 0 16px 0",
                 }}
@@ -63,13 +60,12 @@ export const WhoAreWeSection: React.FC = () => {
 
               {/* Description Text */}
               <p
+                className="text-sm sm:text-base"
                 style={{
                   fontFamily: "SF Pro",
-                  fontWeight: 500,
-                  fontStyle: "normal",
-                  fontSize: "14px",
-                  lineHeight: "22.04px",
-                  letterSpacing: "4%",
+                  fontWeight: 400,
+                  lineHeight: "1.7",
+                  letterSpacing: "0.01em",
                   color: "#FFFFFF",
                   margin: "0",
                 }}
@@ -113,16 +109,17 @@ export const WhoAreWeSection: React.FC = () => {
               >
                 {/* Main Image */}
                 <div
-                  className="w-full rounded-2xl overflow-hidden shadow-2xl h-full"
+                  className="w-full rounded-2xl overflow-hidden shadow-2xl h-full relative"
                   style={{
                     backgroundColor: "#FFFFFF",
                   }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src="/image.png"
                     alt="Who are we showcase"
-                    className="w-full h-auto object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   />
                 </div>
 

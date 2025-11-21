@@ -1,6 +1,7 @@
 "use client";
 
 import type React from "react";
+import Image from "next/image";
 
 interface PlatformCard {
   icon: string;
@@ -59,17 +60,17 @@ const STICKY_HEADER_STYLES = {
 
 const HEADING_STYLES = {
   fontFamily: "SF Pro",
-  fontWeight: 590,
-  lineHeight: "100%",
-  letterSpacing: "0%",
+  fontWeight: 600,
+  lineHeight: "1.1",
+  letterSpacing: "-0.02em",
   color: "#7D1C4A",
 };
 
 const DESCRIPTION_STYLES = {
   fontFamily: "SF Pro",
   fontWeight: 400,
-  lineHeight: "30px",
-  letterSpacing: "4%",
+  lineHeight: "1.7",
+  letterSpacing: "0.01em",
   color: "#53565B",
 };
 
@@ -93,9 +94,9 @@ const CARD_STYLES = {
 
 const CARD_TITLE_STYLES = {
   fontFamily: "SF Pro",
-  fontWeight: 700,
-  lineHeight: "129%",
-  letterSpacing: "0%",
+  fontWeight: 600,
+  lineHeight: "1.3",
+  letterSpacing: "-0.01em",
   margin: "0",
   color: "#7D1C4A",
 };
@@ -113,8 +114,8 @@ const FEATURE_TEXT_STYLES = {
   fontWeight: 400,
   fontStyle: "normal" as const,
   fontSize: "12.38px",
-  lineHeight: "150%",
-  letterSpacing: "4%",
+  lineHeight: "1.6",
+  letterSpacing: "0.01em",
   color: "#171A1F",
   padding: "4px 8px",
   borderRadius: "4px",
@@ -151,12 +152,13 @@ export const OurPlatformsSection: React.FC = () => {
             <div key={index} className="w-full p-6 md:p-8 flex flex-col gap-3 min-h-[280px]" style={CARD_STYLES}>
               {/* Icon and Title */}
               <div className="flex items-center gap-3 md:gap-4 mb-2">
-                <div className="shrink-0">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                <div className="shrink-0 relative w-10 h-10 sm:w-12 sm:h-12">
+                  <Image
                     src={platform.icon}
                     alt={platform.title}
-                    className="w-10 h-10 sm:w-12 sm:h-12"
+                    fill
+                    className="object-contain"
+                    sizes="48px"
                   />
                 </div>
                 <h3 className="text-sm sm:text-base md:text-[17px]" style={CARD_TITLE_STYLES}>{platform.title}</h3>
