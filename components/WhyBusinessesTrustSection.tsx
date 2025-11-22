@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 "use client";
 
 import type React from "react";
@@ -105,14 +106,25 @@ export const WhyBusinessesTrustSection: React.FC = () => {
       <div className="w-full max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Left Box - Trust Points */}
-          <div style={BOX_STYLES} className="flex flex-col p-6 sm:p-8 md:p-10 w-full h-full" style={{
-            ...BOX_STYLES,
-            minHeight: "433px",
-          }}>
-            <h2 className="text-2xl sm:text-3xl md:text-[30px] mb-4 md:mb-6" style={HEADING_STYLES}>Why Businesses Trust ProsperoIQ</h2>
+          <div
+            className="flex flex-col p-6 sm:p-8 md:p-10 w-full h-full"
+            style={{
+              ...BOX_STYLES,
+              minHeight: "433px",
+            }}
+          >
+            <h2
+              className="text-2xl sm:text-3xl md:text-[30px] mb-4 md:mb-6"
+              style={HEADING_STYLES}
+            >
+              Why Businesses Trust ProsperoIQ
+            </h2>
 
             {/* Features List */}
-            <div className="text-sm sm:text-base md:text-lg" style={FEATURE_TEXT_STYLES}>
+            <div
+              className="text-sm sm:text-base md:text-lg"
+              style={FEATURE_TEXT_STYLES}
+            >
               {TRUST_POINTS.map((point, index) => (
                 <div key={index} style={FEATURE_ITEM_STYLES}>
                   <span style={BULLET_STYLES}>{point.icon}</span>
