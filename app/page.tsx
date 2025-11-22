@@ -13,7 +13,7 @@ import {
 
 export default function Home() {
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-white overflow-x-hidden">
       <Navigation />
 
       {/* Unified max-width container for all sections */}
@@ -23,16 +23,14 @@ export default function Home() {
 
         {/* Shared container for Who Are We and Explore Key Features */}
         <div
-          className="w-full bg-gray-100 px-4 md:px-6 lg:px-12"
+          className="w-full"
           style={{ backgroundColor: "#F5F5F5" }}
         >
-          <div className="w-full max-w-7xl mx-auto">
-            {/* Who Are We section */}
-            <WhoAreWeSection />
+          {/* Who Are We section */}
+          <WhoAreWeSection />
 
-            {/* Explore Key Features section */}
-            <ExploreKeyFeaturesSection />
-          </div>
+          {/* Explore Key Features section */}
+          <ExploreKeyFeaturesSection />
         </div>
 
         {/* Our Platforms section */}

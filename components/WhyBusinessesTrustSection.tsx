@@ -103,9 +103,9 @@ export const WhyBusinessesTrustSection: React.FC = () => {
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 0 }} />
 
       <div className="w-full max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-stretch justify-center">
           {/* Left Box - Trust Points */}
-          <div style={BOX_STYLES} className="flex flex-col p-6 sm:p-8 md:p-10 w-full lg:max-w-[507px] min-h-[400px] sm:min-h-[433px]">
+          <div style={BOX_STYLES} className="flex flex-col p-6 sm:p-8 md:p-10 w-full lg:w-1/2 lg:max-w-[507px]">
             <h2 className="text-2xl sm:text-3xl md:text-[30px] mb-4 md:mb-6" style={HEADING_STYLES}>Why Businesses Trust ProsperoIQ</h2>
 
             {/* Features List */}
@@ -120,7 +120,7 @@ export const WhyBusinessesTrustSection: React.FC = () => {
           </div>
 
           {/* Right Box - Image Gallery */}
-          <div className="w-full lg:w-auto flex flex-col items-center gap-4">
+          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center gap-4">
             {/* Image Container with Rectangle Background */}
             <div
               className="relative overflow-hidden rounded-lg flex items-center justify-center w-full aspect-square max-w-[431px]"

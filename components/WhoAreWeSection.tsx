@@ -13,11 +13,11 @@ export const WhoAreWeSection: React.FC = () => {
       <div className="flex flex-col w-full max-w-7xl mx-auto">
         {/* Section Title and Content Wrapper */}
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-stretch"
         >
           {/* Left column - Title and Box */}
           <div
-            className="flex flex-col"
+            className="flex flex-col w-full"
           >
             {/* Section Title */}
             <div className="mb-5 md:mb-6">
@@ -100,16 +100,16 @@ export const WhoAreWeSection: React.FC = () => {
 
           {/* Right - Images Section - Aligned with left box */}
           <div
-            className="flex justify-center items-start lg:mt-[62px]"
+            className="flex justify-center items-start w-full lg:mt-[62px]"
           >
-            <div className="w-full max-w-md relative">
+            <div className="w-full max-w-md lg:max-w-full relative">
               {/* Container for overlapping images */}
               <div
-                className="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px]"
+                className="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] w-full"
               >
                 {/* Main Image */}
                 <div
-                  className="w-full rounded-2xl overflow-hidden shadow-2xl h-full relative"
+                  className="w-full rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3]"
                   style={{
                     backgroundColor: "#FFFFFF",
                   }}
@@ -119,13 +119,13 @@ export const WhoAreWeSection: React.FC = () => {
                     alt="Who are we showcase"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
                   />
                 </div>
 
                 {/* Decorative dot pattern */}
                 <div
-                  className="absolute top-8 right-12 w-20 h-20 pointer-events-none"
+                  className="absolute top-8 right-8 lg:right-12 w-16 h-16 lg:w-20 lg:h-20 pointer-events-none"
                   style={{
                     backgroundImage:
                       "radial-gradient(circle, #D4AF37 1px, transparent 1px)",
