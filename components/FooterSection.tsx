@@ -8,212 +8,168 @@ import { FiMail, FiSun, FiPhone, FiMapPin } from "react-icons/fi";
 const BG_COLOR = "#7D1C4A";
 const HEADING_STYLE = {
   fontFamily: "SF Pro",
-  fontWeight: 510,
-  fontSize: "27.04px",
-  lineHeight: "36.06px",
+  fontWeight: 500,
   color: "#F2F2F2",
-  marginBottom: "16px",
 } as const;
 const TEXT_STYLE = {
   fontFamily: "SF Pro",
   fontWeight: 400,
-  fontSize: "18.03px",
-  lineHeight: "27.04px",
   color: "#CCCCCC",
-  marginBottom: "12px",
 } as const;
 const COPYRIGHT_STYLE = {
   fontFamily: "SF Pro",
-  fontWeight: 510,
-  fontSize: "22px",
-  lineHeight: "20px",
+  fontWeight: 500,
   color: "#FFBF40",
   textAlign: "center" as const,
-  marginTop: "24px",
-  marginBottom: "0",
 } as const;
 
 export const FooterSection: React.FC = () => (
   <footer
-    className="w-full flex flex-col items-center justify-center"
-    style={{ background: BG_COLOR, padding: "44px 0 44px 0" }}
+    className="w-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10 md:py-12"
+    style={{ background: BG_COLOR }}
   >
     <div
       className="w-full max-w-7xl mx-auto flex flex-col gap-8"
-      style={{ width: "1235px", minHeight: "334px", gap: "32px" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {/* Company */}
         <div>
-          <div style={HEADING_STYLE}>Company</div>
-          <div style={TEXT_STYLE}>ProsperoIQ Solutions Private Limited</div>
-          <div style={TEXT_STYLE}>About Us</div>
-          <div style={TEXT_STYLE}>Careers</div>
+          <div className="text-xl sm:text-2xl md:text-[27px] leading-tight mb-3 md:mb-4" style={HEADING_STYLE}>Company</div>
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3 cursor-pointer hover:text-white transition-colors" style={TEXT_STYLE}>ProsperoIQ Solutions Private Limited</div>
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3 cursor-pointer hover:text-white transition-colors" style={TEXT_STYLE}>About Us</div>
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3 cursor-pointer hover:text-white transition-colors" style={TEXT_STYLE}>Careers</div>
         </div>
 
         {/* Policies */}
         <div>
-          <div style={HEADING_STYLE}>Policies</div>
-          <div style={TEXT_STYLE}>Terms and Conditon</div>
-          <div style={TEXT_STYLE}>Privacy policy</div>
-          <div style={TEXT_STYLE}>Refund policy</div>
+          <div className="text-xl sm:text-2xl md:text-[27px] leading-tight mb-3 md:mb-4" style={HEADING_STYLE}>Policies</div>
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3 cursor-pointer hover:text-white transition-colors" style={TEXT_STYLE}>Terms and Conditon</div>
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3 cursor-pointer hover:text-white transition-colors" style={TEXT_STYLE}>Privacy policy</div>
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3 cursor-pointer hover:text-white transition-colors" style={TEXT_STYLE}>Refund policy</div>
         </div>
 
         {/* Contact Us */}
         <div>
-          <div style={HEADING_STYLE}>Contact Us</div>
-          <div className="flex items-center" style={TEXT_STYLE}>
-            <FiMail style={{ marginRight: 8 }} /> support@prosperoIQ.com
+          <div className="text-xl sm:text-2xl md:text-[27px] leading-tight mb-3 md:mb-4" style={HEADING_STYLE}>Contact Us</div>
+          <div className="flex items-center text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3" style={TEXT_STYLE}>
+            <FiMail className="mr-2 shrink-0" size={16} />
+            <span className="break-all">support@prosperoIQ.com</span>
           </div>
-          <div className="flex items-center" style={TEXT_STYLE}>
-            <FiSun style={{ marginRight: 8 }} /> www.prosperoiq.com
+          <div className="flex items-center text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3" style={TEXT_STYLE}>
+            <FiSun className="mr-2 shrink-0" size={16} />
+            <span className="break-all">www.prosperoiq.com</span>
           </div>
-          <div className="flex items-center" style={TEXT_STYLE}>
-            <FiPhone style={{ marginRight: 8 }} /> +91 7305372449
+          <div className="flex items-center text-sm sm:text-base md:text-lg leading-relaxed mb-2 md:mb-3" style={TEXT_STYLE}>
+            <FiPhone className="mr-2 shrink-0" size={16} /> +91 7305372449
           </div>
         </div>
 
         {/* Stay up to date */}
         <div>
-          <div style={HEADING_STYLE}>Stay up to date</div>
+          <div className="text-xl sm:text-2xl md:text-[27px] leading-tight mb-3 md:mb-4" style={HEADING_STYLE}>Stay up to date</div>
 
           <div
-            className="flex items-center mb-4"
-            style={{
-              width: "244.8px",
-              height: "32.52px",
-              background: "#FFFFFF",
-              borderRadius: "6.76px",
-              padding: "6.76px 16.9px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: "56.34px",
-            }}
+            className="flex items-center mb-4 w-full max-w-[245px] bg-white rounded-lg p-2 sm:p-2.5"
           >
             <input
               type="email"
-              className="email-input"
+              className="email-input flex-1 min-w-0 text-sm sm:text-base"
               placeholder="Your email address"
               style={{
                 border: "none",
                 background: "transparent",
-                fontSize: "15.78px",
-                fontWeight: 274,
                 color: "#000000",
                 outline: "none",
-                flex: 1,
                 fontFamily: "SF Pro",
-                lineHeight: "100%",
-                width: "140px",
-                height: "19px",
               }}
             />
 
             <button
-              style={{
-                background: "transparent",
-                border: "none",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: 0,
-                minWidth: "22px",
-              }}
+              className="bg-transparent border-none cursor-pointer flex items-center justify-center p-0 ml-2 shrink-0"
               aria-label="Subscribe"
             >
               <Image
                 src="/send-2.svg"
                 alt="send"
-                width={22}
-                height={22}
+                width={20}
+                height={20}
+                className="w-5 h-5"
                 priority
               />
             </button>
           </div>
 
-          <div className="flex gap-4">
-            <a href="#" aria-label="LinkedIn">
+          <div className="flex gap-3 sm:gap-4">
+            <a href="#" aria-label="LinkedIn" className="hover:opacity-80 transition-opacity">
               <Image
                 src="/linkedin.png"
                 alt="LinkedIn"
                 width={32}
                 height={32}
-                style={{ width: 32, height: 32 }}
+                className="w-7 h-7 sm:w-8 sm:h-8"
               />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a href="#" aria-label="Instagram" className="hover:opacity-80 transition-opacity">
               <Image
                 src="/insta.png"
                 alt="Instagram"
                 width={32}
                 height={32}
-                style={{ width: 32, height: 32 }}
+                className="w-7 h-7 sm:w-8 sm:h-8"
               />
             </a>
-            <a href="#" aria-label="Twitter">
+            <a href="#" aria-label="Twitter" className="hover:opacity-80 transition-opacity">
               <Image
                 src="/twitter.png"
                 alt="Twitter"
                 width={32}
                 height={32}
-                style={{ width: 32, height: 32 }}
+                className="w-7 h-7 sm:w-8 sm:h-8"
               />
             </a>
-            <a href="#" aria-label="YouTube">
+            <a href="#" aria-label="YouTube" className="hover:opacity-80 transition-opacity">
               <Image
                 src="/youtube.png"
                 alt="YouTube"
                 width={32}
                 height={32}
-                style={{ width: 32, height: 32 }}
+                className="w-7 h-7 sm:w-8 sm:h-8"
               />
             </a>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 w-full">
-        <div className="flex items-center">
+      <div className="mt-6 md:mt-8 w-full">
+        <div className="flex items-center mb-4 md:mb-6">
           <span
+            className="text-lg sm:text-xl md:text-2xl font-medium text-white whitespace-nowrap mr-3 md:mr-4"
             style={{
               ...HEADING_STYLE,
               color: "#fff",
-              marginBottom: 0,
-              marginRight: 16,
             }}
           >
             Visit Us
           </span>
-          <div
-            style={{
-              flex: 1,
-              height: 1,
-              background: "#fff",
-              opacity: 0.5,
-              marginRight: 0,
-            }}
-          />
+          <div className="flex-1 h-px bg-white opacity-50" />
         </div>
 
-        <div className="flex items-center mt-6">
+        <div className="flex items-start gap-2 md:gap-3">
           <Image
             src="/location.png"
             alt="location"
-            width={22}
-            height={22}
-            style={{ width: 22, height: 22, marginRight: 12 }}
+            width={20}
+            height={20}
+            className="w-5 h-5 mt-1 shrink-0"
           />
-          <span style={{ ...TEXT_STYLE, color: "#CCCCCC", marginBottom: 0 }}>
-            H65,4th Floor 4B, East Avenue, Pushkar Soundary Enclave, Korattur ,
-            Tiruvallur, Ambattur, Tamil Nadu 600050
+          <span className="text-sm sm:text-base md:text-lg leading-relaxed" style={{ ...TEXT_STYLE, color: "#CCCCCC" }}>
+            H65, 4th Floor 4B, East Avenue, Pushkar Soundary Enclave, Korattur, Tiruvallur, Ambattur, Tamil Nadu 600050
           </span>
         </div>
       </div>
     </div>
 
-    <div style={COPYRIGHT_STYLE}>
+    <div className="text-base sm:text-lg md:text-xl lg:text-[22px] leading-tight text-center mt-6 md:mt-8 px-4" style={COPYRIGHT_STYLE}>
       ProsperoIQ Solutions@ 2025. All rights reserved.
     </div>
 

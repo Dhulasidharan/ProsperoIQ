@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 "use client";
 
 import type React from "react";
@@ -27,30 +28,22 @@ const GALLERY_IMAGES = [
 ];
 
 const BOX_STYLES = {
-  width: "506.73px",
-  height: "433.14px",
   borderRadius: "5px",
   opacity: 0.8,
   backgroundColor: "#7D1C4A",
 } as const;
 
 const HEADING_STYLES = {
-  width: "469px",
-  height: "36px",
   fontFamily: "SF Pro",
   fontWeight: 700,
-  fontSize: "30px",
   lineHeight: "100%",
   letterSpacing: "0%",
   color: "#FFCE56",
-  marginBottom: "24px",
 } as const;
 
 const FEATURE_TEXT_STYLES = {
-  width: "469px",
   fontFamily: "SF Pro",
   fontWeight: 400,
-  fontSize: "18px",
   lineHeight: "150%",
   letterSpacing: "4%",
   color: "#FFFFFF",
@@ -72,13 +65,10 @@ const BULLET_STYLES = {
 } as const;
 
 const PROGRESS_BAR_CONTAINER = {
-  width: "200px",
   height: "12px",
 } as const;
 
 const IMAGE_CONTAINER_STYLES = {
-  width: "431px",
-  height: "431px",
   backgroundImage: "url('/Rectangle.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -107,20 +97,34 @@ export const WhyBusinessesTrustSection: React.FC = () => {
 
   return (
     <section
-      className="w-full px-4 md:px-6 lg:px-12 py-16 md:py-20 lg:py-24 relative"
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 relative"
       style={SECTION_STYLES}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 0 }} />
 
       <div className="w-full max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Left Box - Trust Points */}
-          <div style={BOX_STYLES} className="flex flex-col p-8 md:p-10">
-            <h2 style={HEADING_STYLES}>Why Businesses Trust ProsperoIQ</h2>
+          <div
+            className="flex flex-col p-6 sm:p-8 md:p-10 w-full h-full"
+            style={{
+              ...BOX_STYLES,
+              minHeight: "433px",
+            }}
+          >
+            <h2
+              className="text-2xl sm:text-3xl md:text-[30px] mb-4 md:mb-6"
+              style={HEADING_STYLES}
+            >
+              Why Businesses Trust ProsperoIQ
+            </h2>
 
             {/* Features List */}
-            <div style={FEATURE_TEXT_STYLES}>
+            <div
+              className="text-sm sm:text-base md:text-lg"
+              style={FEATURE_TEXT_STYLES}
+            >
               {TRUST_POINTS.map((point, index) => (
                 <div key={index} style={FEATURE_ITEM_STYLES}>
                   <span style={BULLET_STYLES}>{point.icon}</span>
@@ -131,11 +135,14 @@ export const WhyBusinessesTrustSection: React.FC = () => {
           </div>
 
           {/* Right Box - Image Gallery */}
-          <div className="w-full lg:w-auto flex flex-col items-center gap-4">
+          <div className="w-full h-full flex flex-col items-center justify-center gap-4">
             {/* Image Container with Rectangle Background */}
             <div
-              className="relative overflow-hidden rounded-lg flex items-center justify-center"
-              style={IMAGE_CONTAINER_STYLES}
+              className="relative overflow-hidden rounded-lg flex items-center justify-center w-full h-full max-w-[431px]"
+              style={{
+                ...IMAGE_CONTAINER_STYLES,
+                minHeight: "433px",
+              }}
             >
               <Image
                 src={GALLERY_IMAGES[currentImageIndex].src}
@@ -162,7 +169,7 @@ interface ProgressBarProps {
 const ProgressBar: React.FC<ProgressBarProps> = ({ currentImageIndex }) => (
   <>
     <div
-      className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-0"
+      className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex gap-0 w-32 sm:w-48 md:w-[200px]"
       style={PROGRESS_BAR_CONTAINER}
     >
       {[0, 1, 2].map((index) => (

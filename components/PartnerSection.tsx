@@ -40,27 +40,20 @@ const SECTION_STYLES = {
 } as const;
 
 const HEADING_STYLES = {
-  width: "695px",
   fontFamily: "SF Pro",
-  fontWeight: 590,
-  fontSize: "45px",
-  lineHeight: "80px",
-  letterSpacing: "0.2px",
+  fontWeight: 600,
+  letterSpacing: "-0.01em",
   textAlign: "center" as const,
   color: "#7D1C4A",
 } as const;
 
 const DESCRIPTION_STYLES = {
-  width: "585px",
   fontFamily: "SF Pro",
-  fontWeight: 510,
-  fontSize: "20px",
-  lineHeight: "30px",
-  letterSpacing: "0.2px",
+  fontWeight: 400,
+  lineHeight: "1.7",
+  letterSpacing: "0.01em",
   textAlign: "center" as const,
   color: "#000000",
-  marginTop: "24px",
-  marginBottom: "48px",
 } as const;
 
 const BUTTON_STYLES = {
@@ -100,15 +93,6 @@ const LEARN_MORE_TEXT_STYLES = {
 
 const CARD_STYLES = {
   borderRadius: "15px",
-  paddingTop: "20px",
-  paddingBottom: "14px",
-  paddingRight: "40px",
-  paddingLeft: "40px",
-  width: "328px",
-  minHeight: "241.53px",
-  display: "flex",
-  flexDirection: "column" as const,
-  gap: "10px",
   backgroundColor: "#FFFFFF",
   boxShadow: "0px 13px 19px 0px rgba(0, 0, 0, 0.07)",
   transition: "all 0.3s ease",
@@ -117,10 +101,10 @@ const CARD_STYLES = {
 
 const CARD_TITLE_STYLES = {
   fontFamily: "SF Pro",
-  fontWeight: 700,
+  fontWeight: 600,
   fontSize: "24px",
-  lineHeight: "32px",
-  letterSpacing: "0.1px",
+  lineHeight: "1.3",
+  letterSpacing: "-0.01em",
   margin: "0",
   color: "#252B42",
 } as const;
@@ -129,8 +113,8 @@ const CARD_DESCRIPTION_STYLES = {
   fontFamily: "SF Pro",
   fontWeight: 400,
   fontSize: "16px",
-  lineHeight: "24px",
-  letterSpacing: "0.2px",
+  lineHeight: "1.6",
+  letterSpacing: "0.01em",
   margin: "0",
   marginTop: "8px",
 } as const;
@@ -149,37 +133,38 @@ export const PartnerSection: React.FC = () => {
 
   return (
     <section
-      className="w-full px-4 md:px-6 lg:px-12 py-16 md:py-20 lg:py-24"
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20"
       style={SECTION_STYLES}
     >
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
         {/* Heading */}
-        <h2 style={HEADING_STYLES}>
+        <h2 className="text-3xl sm:text-4xl md:text-[45px] leading-tight sm:leading-relaxed max-w-4xl px-4" style={HEADING_STYLES}>
           Your Partner for Effortless Compliance Excellence
         </h2>
 
         {/* Description */}
-        <p style={DESCRIPTION_STYLES}>
+        <p className="text-base sm:text-lg md:text-xl mt-4 md:mt-6 mb-8 md:mb-12 max-w-2xl px-4" style={DESCRIPTION_STYLES}>
           We know large-scale compliance demands precision and speed, but small
           details are just as critical. Our solutions are crafted to handle both
           efficiently.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <button style={BUTTON_STYLES}>
-            <span style={BUTTON_TEXT_STYLES}>Scheduled Demo</span>
+        <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16">
+          <button className="px-6 sm:px-9 py-3 sm:py-4 rounded-full transition-all duration-300 hover:opacity-90" style={BUTTON_STYLES}>
+            <span className="text-sm font-bold" style={BUTTON_TEXT_STYLES}>Scheduled Demo</span>
           </button>
-          <button style={LEARN_MORE_BUTTON_STYLES}>
-            <span style={LEARN_MORE_TEXT_STYLES}>Learn More</span>
+          <button className="px-6 sm:px-9 py-3 sm:py-4 rounded-full transition-all duration-300 hover:bg-primary hover:border-primary hover:text-white" style={LEARN_MORE_BUTTON_STYLES}>
+            <span className="text-sm font-bold" style={LEARN_MORE_TEXT_STYLES}>Learn More</span>
           </button>
         </div>
 
         {/* Cards Grid */}
-        <div className="w-full flex flex-wrap justify-center gap-8">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl">
           {EXPERTISE_CARDS.map((card, index) => (
             <div
               key={index}
+              className="p-6 sm:p-8 md:p-10 flex flex-col gap-3 w-full min-h-[240px]"
               style={{
                 ...CARD_STYLES,
                 backgroundColor:
@@ -190,7 +175,7 @@ export const PartnerSection: React.FC = () => {
               }
             >
               {/* Image Icon */}
-              <div style={CARD_ICON_CONTAINER}>
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 relative mb-2 md:mb-3">
                 <Image
                   src={
                     selectedCardIndex === index ? "/customer.png" : card.image
@@ -203,6 +188,7 @@ export const PartnerSection: React.FC = () => {
 
               {/* Title */}
               <h3
+                className="text-lg sm:text-xl md:text-2xl"
                 style={{
                   ...CARD_TITLE_STYLES,
                   color: selectedCardIndex === index ? "#FFFFFF" : "#252B42",
@@ -213,6 +199,7 @@ export const PartnerSection: React.FC = () => {
 
               {/* Description */}
               <p
+                className="text-sm sm:text-base mt-2"
                 style={{
                   ...CARD_DESCRIPTION_STYLES,
                   color: selectedCardIndex === index ? "#FFFFFF" : "#000000",
