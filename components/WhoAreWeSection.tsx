@@ -11,39 +11,36 @@ export const WhoAreWeSection: React.FC = () => {
     >
       {/* Flex container for title and content */}
       <div className="flex flex-col w-full max-w-7xl mx-auto">
-        {/* Section Title and Content Wrapper */}
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-stretch"
-        >
-          {/* Left column - Title and Box */}
-          <div
-            className="flex flex-col w-full"
+        {/* Section Title */}
+        <div className="mb-5 md:mb-6">
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] leading-tight font-semibold"
+            style={{
+              fontFamily: "SF Pro",
+              lineHeight: "1.2",
+              letterSpacing: "-0.01em",
+              color: "#7D1C4A",
+              margin: "0",
+            }}
           >
-            {/* Section Title */}
-            <div className="mb-5 md:mb-6">
-              <h2
-                className="text-3xl sm:text-4xl md:text-[42px] leading-tight font-semibold"
-                style={{
-                  fontFamily: "SF Pro",
-                  lineHeight: "1.2",
-                  letterSpacing: "-0.01em",
-                  color: "#7D1C4A",
-                  margin: "0",
-                }}
-              >
-                Who are we
-              </h2>
-            </div>
+            Who are we
+          </h2>
+        </div>
 
-            {/* Content Box */}
-            <div
-              className="w-full rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[400px]"
-              style={{
-                maxWidth: "617.86px",
-                borderRadius: "18.37px",
-                backgroundColor: "#7D1C4A",
-              }}
-            >
+        {/* Content Wrapper - Grid with equal height items */}
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center"
+        >
+          {/* Left column - Content Box */}
+          <div
+            className="w-full rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-full"
+            style={{
+              maxWidth: "617.86px",
+              borderRadius: "18.37px",
+              backgroundColor: "#7D1C4A",
+              minHeight: "400px",
+            }}
+          >
               {/* Value Delivered Title */}
               <h3
                 className="text-lg sm:text-xl font-semibold"
@@ -95,23 +92,23 @@ export const WhoAreWeSection: React.FC = () => {
               >
                 Learn More
               </button>
-            </div>
           </div>
 
-          {/* Right - Images Section - Aligned with left box */}
+          {/* Right - Images Section - Same height as left box */}
           <div
-            className="flex justify-center items-start w-full lg:mt-[62px]"
+            className="flex justify-center items-center w-full h-full"
           >
-            <div className="w-full max-w-md lg:max-w-full relative">
+            <div className="w-full max-w-md lg:max-w-full relative h-full flex items-center justify-center" style={{ minHeight: "400px" }}>
               {/* Container for overlapping images */}
               <div
-                className="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] w-full"
+                className="relative flex items-center justify-center w-full h-full"
               >
                 {/* Main Image */}
                 <div
-                  className="w-full rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3]"
+                  className="w-full h-full rounded-2xl overflow-hidden shadow-2xl relative"
                   style={{
                     backgroundColor: "#FFFFFF",
+                    minHeight: "400px",
                   }}
                 >
                   <Image

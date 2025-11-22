@@ -103,9 +103,12 @@ export const WhyBusinessesTrustSection: React.FC = () => {
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 0 }} />
 
       <div className="w-full max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-stretch justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Left Box - Trust Points */}
-          <div style={BOX_STYLES} className="flex flex-col p-6 sm:p-8 md:p-10 w-full lg:w-1/2 lg:max-w-[507px]">
+          <div style={BOX_STYLES} className="flex flex-col p-6 sm:p-8 md:p-10 w-full h-full" style={{
+            ...BOX_STYLES,
+            minHeight: "433px",
+          }}>
             <h2 className="text-2xl sm:text-3xl md:text-[30px] mb-4 md:mb-6" style={HEADING_STYLES}>Why Businesses Trust ProsperoIQ</h2>
 
             {/* Features List */}
@@ -120,11 +123,14 @@ export const WhyBusinessesTrustSection: React.FC = () => {
           </div>
 
           {/* Right Box - Image Gallery */}
-          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center gap-4">
+          <div className="w-full h-full flex flex-col items-center justify-center gap-4">
             {/* Image Container with Rectangle Background */}
             <div
-              className="relative overflow-hidden rounded-lg flex items-center justify-center w-full aspect-square max-w-[431px]"
-              style={IMAGE_CONTAINER_STYLES}
+              className="relative overflow-hidden rounded-lg flex items-center justify-center w-full h-full max-w-[431px]"
+              style={{
+                ...IMAGE_CONTAINER_STYLES,
+                minHeight: "433px",
+              }}
             >
               <Image
                 src={GALLERY_IMAGES[currentImageIndex].src}
